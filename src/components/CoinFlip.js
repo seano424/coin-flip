@@ -9,8 +9,6 @@ export default class CoinFlip extends Component {
     heads: 0,
   };
 
-  
-
   handleClick = () => {
     const random = Math.floor(Math.random() * 10)
     if (random > 5) {
@@ -29,6 +27,7 @@ export default class CoinFlip extends Component {
   };
 
   render() {
+    const { totalFlips, heads, tails } = this.state
     return (
       <section className="Coin-flip">
         {this.state.isTails ? (
@@ -37,7 +36,7 @@ export default class CoinFlip extends Component {
           <img src="heads.jpeg" alt="heads" />
         )}
         <button onClick={this.handleClick}>Flip Here</button>
-        <p>{`Out of ${this.state.totalFlips} flips there have been ${this.state.heads} heads and ${this.state.tails} tails`}</p>
+        <p>{`Out of ${totalFlips} flips there have been ${heads} heads and ${tails} tails`}</p>
       </section>
     );
   }
